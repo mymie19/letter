@@ -1,55 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>A Letter For You ❤️</title>
-
-<style>
-
-body{
-    margin:0;
-    padding:40px 20px;
-    background:#0f0f0f;
-    color:white;
-    font-family:Georgia, serif;
-    display:flex;
-    justify-content:center;
-}
-
-.letter{
-    width:90%;
-    max-width:650px;
-    background:#1a1a1a;
-    padding:50px;
-    border-radius:15px;
-    box-shadow:0 0 30px rgba(255,255,255,.08);
-}
-
-h1{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-p{
-    line-height:2;
-    font-size:20px;
-    margin-bottom:28px;
-}
-
-.signature{
-    text-align:center;
-    font-size:30px;
-    margin-top:50px;
-}
-
-</style>
-
-</head>
-
 <body>
+
+<div id="intro">
+    <div class="icon">💌</div>
+    <h1>A Letter For Lam</h1>
+    <p>Click anywhere to open</p>
+</div>
+
+<div id="letter" style="display:none;">
 
 <div class="letter">
 
@@ -100,23 +57,30 @@ Take care of yourself, Lam.
 I really hope you have a beautiful life and find all the happiness you deserve.
 </p>
 
-<div class="signature">
-❤️
+<div class="signature">❤️</div>
+
 </div>
 
-<audio id="bgMusic" controls loop>
+</div>
+
+<audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+const intro = document.getElementById("intro");
+const letter = document.getElementById("letter");
 const music = document.getElementById("bgMusic");
 
-music.play().catch(() => {
-    document.addEventListener("click", () => {
-        music.play();
-    }, { once: true });
+intro.addEventListener("click", () => {
+
+    music.play();
+
+    intro.style.display = "none";
+
+    letter.style.display = "block";
+
 });
 </script>
 
 </body>
-</html>
