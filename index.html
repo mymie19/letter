@@ -104,8 +104,6 @@ I really hope you have a beautiful life and find all the happiness you deserve.
 ❤️
 </div>
 
-</div>
-    
 <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -113,16 +111,12 @@ I really hope you have a beautiful life and find all the happiness you deserve.
 <script>
 const music = document.getElementById("bgMusic");
 
-// Try autoplay
 music.play().catch(() => {
-    // If the browser blocks autoplay,
-    // start music when the visitor clicks anywhere once.
     document.addEventListener("click", () => {
         music.play();
     }, { once: true });
 });
 </script>
-    
-</body>
 
+</body>
 </html>
