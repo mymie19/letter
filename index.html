@@ -157,29 +157,27 @@ I really hope you have a beautiful life and find all the happiness you deserve.
 
 </div>
 
-<audio id="bgMusic" loop>
+<audio id="bgMusic" preload="auto" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-
 const intro = document.getElementById("intro");
 const letter = document.getElementById("letter");
 const music = document.getElementById("bgMusic");
 
-intro.addEventListener("click", async () => {
+intro.onclick = function () {
 
-    try {
-        await music.play();
-    } catch(e) {
-        console.log("Music couldn't start:", e);
-    }
-
+    // Show the letter immediately
     intro.style.display = "none";
     letter.style.display = "flex";
 
-});
+    // Try to play music
+    music.play().catch(function(error){
+        console.log(error);
+    });
 
+};
 </script>
 
 </body>
