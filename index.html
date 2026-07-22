@@ -1,12 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Letter For You ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:40px 20px;
+    background:#0f0f0f;
+    color:white;
+    font-family:Georgia, serif;
+    display:flex;
+    justify-content:center;
+}
+
+.letter{
+    width:90%;
+    max-width:650px;
+    background:#1a1a1a;
+    padding:50px;
+    border-radius:15px;
+    box-shadow:0 0 30px rgba(255,255,255,.08);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+p{
+    line-height:2;
+    font-size:20px;
+    margin-bottom:28px;
+}
+
+.signature{
+    text-align:center;
+    font-size:30px;
+    margin-top:50px;
+}
+
+/* Intro screen */
+
+#intro{
+    position:fixed;
+    inset:0;
+    background:#0f0f0f;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    text-align:center;
+    z-index:999;
+}
+
+.icon{
+    font-size:100px;
+    transition:.3s;
+}
+
+.icon:hover{
+    transform:scale(1.15);
+}
+
+#intro h1{
+    margin-top:20px;
+}
+
+#intro p{
+    margin-top:15px;
+    opacity:.8;
+}
+
+#letter{
+    display:none;
+    width:100%;
+    justify-content:center;
+}
+
+</style>
+
+</head>
+
 <body>
 
+<!-- Intro Screen -->
 <div id="intro">
     <div class="icon">💌</div>
-    <h1>A Letter For Lam</h1>
+    <h1>A Letter For Lam ❤️</h1>
     <p>Click anywhere to open</p>
 </div>
 
-<div id="letter" style="display:none;">
+<!-- Letter -->
+<div id="letter">
 
 <div class="letter">
 
@@ -57,7 +149,9 @@ Take care of yourself, Lam.
 I really hope you have a beautiful life and find all the happiness you deserve.
 </p>
 
-<div class="signature">❤️</div>
+<div class="signature">
+❤️
+</div>
 
 </div>
 
@@ -68,19 +162,26 @@ I really hope you have a beautiful life and find all the happiness you deserve.
 </audio>
 
 <script>
+
 const intro = document.getElementById("intro");
 const letter = document.getElementById("letter");
 const music = document.getElementById("bgMusic");
 
-intro.addEventListener("click", () => {
+intro.addEventListener("click", async () => {
 
-    music.play();
+    try {
+        await music.play();
+    } catch(e) {
+        console.log("Music couldn't start:", e);
+    }
 
     intro.style.display = "none";
-
-    letter.style.display = "block";
+    letter.style.display = "flex";
 
 });
+
 </script>
 
 </body>
+
+</html>
